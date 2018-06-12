@@ -7,26 +7,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qsl.cursomc.domain.Categoria;
-import com.qsl.cursomc.repositories.CategoriaRepository;
+import com.qsl.cursomc.domain.Produto;
+import com.qsl.cursomc.repositories.ProdutoRepository;
 import com.qsl.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class CategoriaService {
+public class ProdutoService {
 	
 	@Autowired
-	private CategoriaRepository repo;
+	private ProdutoRepository repo;
 	
-	public Categoria buscar(Integer id) {
-		Optional<Categoria> obj = repo.findById(id);
+	public Produto buscar(Integer id) {
+		Optional<Produto> obj = repo.findById(id);
 
 //		return obj.orElse(null);
 		
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName()));
 
 	}
 	
-	public List<Categoria> listAll(){
+	public List<Produto> listAll(){
 		return repo.findAll();
 	}
 

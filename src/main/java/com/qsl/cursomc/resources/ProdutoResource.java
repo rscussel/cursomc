@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qsl.cursomc.domain.Categoria;
-import com.qsl.cursomc.services.CategoriaService;
+import com.qsl.cursomc.domain.Produto;
+import com.qsl.cursomc.services.ProdutoService;
 
 @RestController
-@RequestMapping(value="/cursomc/categorias")
-public class CategoriaResource {
+@RequestMapping(value="/cursomc/produtos")
+public class ProdutoResource {
 	
 	@Autowired
-	private CategoriaService service;
+	private ProdutoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = service.buscar(id);
+		Produto obj = service.buscar(id);
 		
 		System.out.println(obj==null ? "não encontrei nada" : obj.toString());
 		
@@ -30,19 +30,19 @@ public class CategoriaResource {
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
-	public List<Categoria> listar() {
+	public List<Produto> listar() {
 		
-//		Categoria cat1 = new Categoria(1, "Informatica");
-//		Categoria cat2= new Categoria(2, "Escritorio");
+//		Produto cat1 = new Produto(1, "Informatica");
+//		Produto cat2= new Produto(2, "Escritorio");
 //
-//		List<Categoria> lista = new ArrayList<>();
+//		List<Produto> lista = new ArrayList<>();
 //		
 //		lista.add(cat1);
 //		lista.add(cat2);
 //		
 //		System.out.println("numero cate : " + lista.size());
 //		
-//		Categoria obj = service.buscar(1);
+//		Produto obj = service.buscar(1);
 //		
 //		System.out.println(obj==null ? "não encontrei nada" : obj.toString());
 //		
