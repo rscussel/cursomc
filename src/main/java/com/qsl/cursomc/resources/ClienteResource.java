@@ -12,7 +12,7 @@ import com.qsl.cursomc.services.ClienteService;
 
 
 @RestController
-@RequestMapping(value="/clientes")
+@RequestMapping(value="/cursomc/clientes")
 public class ClienteResource {
 	
 	@Autowired
